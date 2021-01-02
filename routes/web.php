@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\URLShortener;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// URL Shortener routes
+Route::get('/urlshortener',[URLShortener::class,'index']);
+Route::get('/u/{shorturl}',[URLShortener::class,'longify']);
+Route::post('/urlshortener/shortify',[URLShortener::class,'shortify']);
